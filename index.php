@@ -1,3 +1,3 @@
 <?php
-echo "Idex page: work in progress";
+echo "Index page: work in progress";
 ?>
