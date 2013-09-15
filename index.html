@@ -1,9 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Snapped!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+    body {
+        background-image: url('img/loginbackground.jpg');
+    }
+    .box {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 720px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: rgba(0,0,0,.9);
+        border: 1px solid #b5b5b5;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+    .box h2 {
+        text-align: center;
+    }
+    #left {
+        padding: 2px;
+        float: left;
+        width: 50%;
+        border-right: 1px solid #b5b5b5;
+        margin-right: 1px;
+    }
+    #right {
+        padding: 2px;
+        float: right;
+        width: 50%;
+    }
+    
+    .footer {
+        position: fixed;
+        width: 1114px;
+        bottom: 20px;
+    }   
+    </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
@@ -59,7 +102,26 @@
 
 
     <!-- <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button> -->
-    <button class="btn btn-primary" id="sign-in"> Sign In </button>
+
+    <div class="container">
+        <div class="box">
+            <h2> Sign In </h2>
+            <hr>
+            <button class="btn btn-primary pull-right" id="sign-in"> Sign In and experience the snapped </button>
+            <span id="left" class="pull-left">
+                Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+      present a graphical Login button that triggers the FB.login() function when clicked.
+
+      Learn more about options for the login button plugin:
+      /docs/reference/plugins/login/
+            </span>
+        </div>        
+        <div class="footer">
+            <hr>
+            <span class="pull-right"><a href="index.html">Back Home</a></span>
+            <span>© 2013 Snapped! </span>
+        </div>
+    </div>
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
