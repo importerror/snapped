@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Snapped!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/login.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+      FB.init({
+      appId      : '447709042011069', // App ID
+      channelUrl : 'http://localhost/old/snapped/channel.html', // Channel File. Change it to your needs
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+      });
+
+      FB.Event.subscribe('auth.authResponseChange', function(response) {
+        if (response.status === 'connected') {
+          alert('You are logged in and authorised');//testAPI();
+        } else if (response.status === 'not_authorized') {
+          alert('You are logged in but not authorised');//FB.login();
+        } else {
+          alert('Please Log in to continue');//FB.login();
+        }
+      });
+      };
+
+      // Load the SDK asynchronously
+      (function(d){
+       var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement('script'); js.id = id; js.async = true;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       ref.parentNode.insertBefore(js, ref);
+      }(document));
+
+      // function testAPI() {
+      //   console.log('Welcome!  Fetching your information.... ');
+      //   FB.api('/me', function(response) {
+      //     console.log('Good to see you, ' + response.name + '.');
+      //   });
+      // }
+    </script>
+
+    <!--
+      Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+      present a graphical Login button that triggers the FB.login() function when clicked.
+
+      Learn more about options for the login button plugin:
+      /docs/reference/plugins/login/ -->
+
+
+    <!-- <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button> -->
+
+    <div class="container">
+        <div class="box">
+            <h2> Sign In </h2>
+            <hr>
+            <button class="btn btn-primary pull-right" id="sign-in"> Sign In and experience the snapped </button>
+            <span id="left" class="pull-left">
+                Snapped is a social web app created with aim of managing facebook groups. Repetitive tasks like inviting different users to some event or notification could get a lot easier with Snapped. 
+            </span>
+        </div>
+    </div>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
