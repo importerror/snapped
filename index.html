@@ -26,11 +26,11 @@
 
       FB.Event.subscribe('auth.authResponseChange', function(response) {
         if (response.status === 'connected') {
-          testAPI();
+          alert('You are logged in and authorised');//testAPI();
         } else if (response.status === 'not_authorized') {
-          FB.login();
+          alert('You are logged in but not authorised');//FB.login();
         } else {
-          FB.login();
+          alert('Please Log in to continue');//FB.login();
         }
       });
       };
@@ -44,12 +44,12 @@
        ref.parentNode.insertBefore(js, ref);
       }(document));
 
-      function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-          console.log('Good to see you, ' + response.name + '.');
-        });
-      }
+      // function testAPI() {
+      //   console.log('Welcome!  Fetching your information.... ');
+      //   FB.api('/me', function(response) {
+      //     console.log('Good to see you, ' + response.name + '.');
+      //   });
+      // }
     </script>
 
     <!--

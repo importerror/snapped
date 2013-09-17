@@ -3,8 +3,7 @@ $(document).ready(function(){
 });
 
 function fb_login(){
-	console.log('here');
-    FB.login(function(response) {
+	FB.login(function(response) {
 
         if (response.authResponse) {
             console.log('Welcome!  Fetching your information.... ');
@@ -14,6 +13,7 @@ function fb_login(){
 
             FB.api('/me', function(response) {
                 user_email = response.email; //get user email
+                console.log('Good to see you, ' + response.name + '.');
           // you can store this data into your database             
             });
 

@@ -17,6 +17,43 @@
 	<![endif]-->
   </head>
   <body>
+  	<script>
+      window.fbAsyncInit = function() {
+      FB.init({
+      appId      : '447709042011069', // App ID
+      channelUrl : 'http://localhost/old/snapped/channel.html', // Channel File. Change it to your needs
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+      });
+
+      FB.Event.subscribe('auth.authResponseChange', function(response) {
+        if (response.status === 'connected') {
+          console.log('You are logged in and authorised');//testAPI();
+        } else if (response.status === 'not_authorized') {
+          console.log('You are logged in but not authorised');//FB.login();
+        } else {
+          console.log('Please Log in to continue');//FB.login();
+        }
+      });
+      };
+
+      // Load the SDK asynchronously
+      (function(d){
+       var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement('script'); js.id = id; js.async = true;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       ref.parentNode.insertBefore(js, ref);
+      }(document));
+
+      // function testAPI() {
+      //   console.log('Welcome!  Fetching your information.... ');
+      //   FB.api('/me', function(response) {
+      //     console.log('Good to see you, ' + response.name + '.');
+      //   });
+      // }
+    </script>
 	<div class="container">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
@@ -35,6 +72,9 @@
 					<li class="active"><a href="#">Home</a></li>
 					<!-- <li><a href="#">Link</a></li> -->
 				</ul>
+				<ul class="nav navbar-nav navbar-right">
+      				<li id="logout"><a href="#logout">Log Out</a></li>
+      			</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
 		<form id="send-msg" method="POST" action="process.py">
